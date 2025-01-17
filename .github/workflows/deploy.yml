@@ -21,15 +21,15 @@ jobs:
           node-version: 18
           cache: npm
 
-      # 4. Instalar dependências
+      # 3. Instalar dependências
       - name: Install dependencies
         run: npm install
 
-      # 5. Construir o projeto
+      # 4. Construir o projeto
       - name: Build project
         run: npm run build
 
-      # 6. Deploy para GitHub Pages
+      # 5. Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
