@@ -19,19 +19,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: false
-
-      - name: Generate lock file
-        run: npm install --package-lock-only
+          node-version: 20
+          cache: pnpm
 
       # 3. Instalar dependências
       - name: Install dependencies
-        run: npm install
+        run: pnpm i
 
       # 4. Construir o projeto
       - name: Build project
-        run: npm run build
+        run: pnpm run build
 
       # 5. Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
