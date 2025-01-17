@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       # 1. Checkout do código
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,6 +21,9 @@ jobs:
         with:
           node-version: 18
           cache: npm
+
+      - name: Generate lock file
+  run: npm install --package-lock-only
 
       # 3. Instalar dependências
       - name: Install dependencies
