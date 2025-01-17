@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       # 1. Checkout do código
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,18 +21,19 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      # 3. Instalar o pnpm
       - name: Install pnpm
-        run: corepack prepare pnpm@latest --activate
+        run: corepack enable && corepack prepare pnpm@latest --activate
 
-      # 3. Instalar dependências
+      # 4. Instalar dependências
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install
 
-      # 4. Construir o projeto
+      # 5. Construir o projeto
       - name: Build project
         run: pnpm run build
 
-      # 5. Deploy para GitHub Pages
+      # 6. Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
