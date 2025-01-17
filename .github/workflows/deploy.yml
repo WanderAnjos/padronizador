@@ -16,10 +16,7 @@ jobs:
 
       # 2. Configurar Node.js e cache de dependências
       - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: pnpm
+        uses: actions/setup-node@v4.1.0
 
       # 3. Instalar e ativar o pnpm
       - name: Install and Enable pnpm
