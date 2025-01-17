@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4.1.0
 
-      # 3. Instalar e ativar o pnpm
+      # 3. Instalar e ativar o pnp
       - name: Install and Enable pnpm
         run: |
           corepack enable
