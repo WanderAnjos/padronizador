@@ -19,19 +19,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: pnpm
-
-      # 3. Instalar e configurar o pnpm
-      - name: Install pnpm
-        run: corepack prepare pnpm@latest --activate
+          cache: npm
 
       # 4. Instalar dependências
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # 5. Construir o projeto
       - name: Build project
-        run: pnpm build
+        run: npm run build
 
       # 6. Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
