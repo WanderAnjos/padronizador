@@ -26,7 +26,6 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
-          echo "::add-path::$(npm prefix -g)/node_modules/.bin"
 
       # 4. Verificar se o pnpm está disponível
       - name: Check pnpm version
