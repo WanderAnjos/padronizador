@@ -21,9 +21,9 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      # 3. Instalar o pnpm
+      # 3. Instalar o pnpm explicitamente
       - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
+        run: npm install -g pnpm
 
       # 4. Instalar dependências
       - name: Install dependencies
