@@ -14,26 +14,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Configurar Node.js
+      # 2. Configurar Node.js e cache de dependências
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: pnpm
 
-      # 3. Instalar o pnpm explicitamente
-      - name: Install pnpm
-        run: npm install -g pnpm
+      # 3. Instalar e ativar o pnpm
+      - name: Install and Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          echo "::add-path::$(npm prefix -g)/node_modules/.bin"
 
-      # 4. Instalar dependências
+      # 4. Verificar se o pnpm está disponível
+      - name: Check pnpm version
+        run: pnpm --version
+
+      # 5. Instalar dependências
       - name: Install dependencies
         run: pnpm install
 
-      # 5. Construir o projeto
+      # 6. Construir o projeto
       - name: Build project
         run: pnpm run build
 
-      # 6. Deploy para GitHub Pages
+      # 7. Deploy para GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
