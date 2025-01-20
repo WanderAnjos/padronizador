@@ -13,45 +13,6 @@ import { Label } from './ui/label';
 import { Switch } from "./ui/switch";
 import { Textarea } from "./ui/textarea";
 
-const frameworks = [
-    {
-        value: "rhf-jdk-rhfolha",
-        label: "Rhfolha",
-    },
-    {
-        value: "rhf-jdk-rhfesocial",
-        label: "Rhfesocial",
-    },
-    {
-        value: "rhf-jdk-rhfponto",
-        label: "Rhfponto",
-    },
-    {
-        value: "rhf-jdk-rhfrechum",
-        label: "Rhfrechum",
-    },
-    {
-        value: "rhf-jdk-rhfsegsau",
-        label: "Rhfsegsau",
-    },
-    {
-        value: "rhf-jdk-rhfarquivo",
-        label: "Rhfarquivo",
-    },
-    {
-        value: "rhf-jdk-rhfdic",
-        label: "Rhfdic",
-    },
-    {
-        value: "rhf-jdk-garhfolha",
-        label: "Garhfolha",
-    },
-    {
-        value: "rhf-jdk-consultanegocio",
-        label: "Consultanegocio",
-    },
-]
-
 export default function MainForm() {
 
     const form = useForm()
@@ -153,7 +114,10 @@ commit: Processo Nº0001 / 2025 - Nome do processo`;
                                     <FormControl>
                                         <Switch
                                             checked={field.value}
-                                            onCheckedChange={field.onChange}
+                                            onCheckedChange={() => {
+                                                field.onChange();
+                                                setHasLib(!hasLib);
+                                            }}
                                         />
                                     </FormControl>
                                     <FormLabel>
